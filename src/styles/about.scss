@@ -1,0 +1,78 @@
+@import "./variables.scss";
+@import "./mixin.scss";
+
+.about-wrapper{
+    background-color: $corporate-orange;
+    min-height: 90svh;
+    box-shadow: rgba(50, 50, 93, 0.35) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.35) 0px -20px 36px -18px inset, rgba(0, 0, 0, 0.35) 20px -1px 36px -18px inset, rgba(0, 0, 0, 0.35) -20px 0px 36px -18px inset;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    .carousel{
+        max-width: $max-width;
+        text-wrap: pretty;
+        color: white;
+        font-family: "CooperBlackRegular";
+        margin: auto;
+        text-align: left;
+        font-size: 3ch;
+
+        .title{
+            margin-bottom: 1rem;
+            margin-top: 6rem;
+        }
+    }
+    .carousel-controls {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+    }
+    
+    .arrow {
+        background: transparent;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: white;
+        transition: color 0.3s;
+        margin: 10%;
+        &:hover {
+            color: $corporate-green;
+        }
+    }
+    
+    .carousel-indicators {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        position: absolute;
+        bottom: 8%;
+        margin: auto;
+        left: 0;
+        right: 0;
+    }
+    
+    .indicator {
+        width: 10px;
+        height: 10px;
+        margin: 0 5px;
+        border-radius: 50%;
+        background: white;
+        cursor: pointer;
+        transition: background 0.3s;
+    
+        &.active {
+            background: #ccc;
+        }
+    }
+}
+
+@font-face {
+    font-family: 'CooperBlackRegular';
+    src: url("../assets/fonts/CooperBlackRegular.ttf");
+  }

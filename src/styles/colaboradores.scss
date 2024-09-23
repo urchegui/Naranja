@@ -1,0 +1,27 @@
+
+.partners-wrapper{
+    min-height: 80svh;
+    background-image: url("../assets/ilustration.webp");
+    background-size: 30%;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-color: #F9EBD2;
+      
+    .partner-title{
+        margin-bottom: 5rem;
+        padding-top: 1rem;
+    }
+    .logo-container{
+        display: grid;
+        justify-content: space-evenly;
+        grid-template-columns: repeat(2, 25%);
+        align-items: center;
+        justify-items: center;
+    }
+    img{
+        width: 100%;
+    }
+    #imbolc{
+        width: 90%;
+    }
+}
