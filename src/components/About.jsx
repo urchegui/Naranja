@@ -1,84 +1,60 @@
-import React, { useState, useEffect } from "react";
+
 import "../styles/about.scss";
 
 const About = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    const titulosItems = [
-        "¿Quiénes somos?",
-        "¿Qué hacemos?",
-        "¿Cuándo y dónde?"
-    ];
-
-    const textItems = [
-        "Somos Naranja Sound System, una asociación cultural que une fuerzas con dos pilares de la escena underground madrileña: Codex Sessions e Imbolc Crew. Bajo los valores de armonía, respeto y conexión, hemos creado una plataforma para celebrar la música electrónica en un ambiente único y diurno. Nuestra esencia es generar una comunidad dónde la energía fluya a través del sonido, conectando a las personas en un espacio libre y auténtico.",
-        "En Naranja, organizamos eventos mensuales que transforman la ciudad en un epicentro de la electrónica. Cada encuentro es una experiencia dónde la música y el arte convergen, y te invitamos a bailar bajo el sol madrileño en un formato que resalta el poder del día: sonido, atmósferas únicas y una conexión genuina entre público y artistas.",
-        "Nuestro primer evento es el sábado 12 de octubre, desde las 16:00 hasta las 00:00. Te esperamos en el corazón de Madrid para vivir una tarde llena de vibraciones positivas, buena música y esa chispa que sólo la escena electrónica puede ofrecer."
-    ];
-
-    const titleItems = [
-        "Who are we?",
-        "What do we do?",
-        "When and where?"
-    ];
-
-    const englishItems = [
-        "We are Naranja Sound System, a cultural association that joins forces with two pillars of the Madrid underground scene: Codex Sessions and Imbolc Crew. Under the values of harmony, respect, and connection, we have created a platform to celebrate electronic music in a unique daytime environment. Our essence is to generate a community where energy flows through sound, connecting people in a free and authentic space.",
-        "At Naranja, we organize monthly events that transform the city into an epicenter of electronic music. Each meeting is an experience where music and art converge, and we invite you to dance under the Madrid sun in a format that highlights the power of the day: sounds, unique atmospheres, and a genuine connection between the audience and the artists.",
-        "Our first event is on Saturday, October 12, from 16:00 to 00:00. We are waiting for you in the heart of Madrid to live an afternoon full of positive vibes, good music, and that spark that only the electronic scene can offer."
-    ];
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentIndex((prevIndex) =>
-                prevIndex === textItems.length - 1 ? 0 : prevIndex + 1
-            );
-        }, 8000);
-
-        return () => {
-            clearInterval(interval);
-        };
-    }, [textItems.length]);
-
-    const nextItem = () => {
-        setCurrentIndex((prevIndex) => (prevIndex === textItems.length - 1 ? 0 : prevIndex + 1));
-    };
-
-    const prevItem = () => {
-        setCurrentIndex((prevIndex) => (prevIndex === 0 ? textItems.length - 1 : prevIndex - 1));
-    };
-
     return (
-        <div className="about-wrapper">
-            <div className="carousel">
-                <h1 className="carousel-text title">
-                    {titulosItems[currentIndex]}
-                </h1>
-                <p className="carousel-text">
-                    {textItems[currentIndex]}
-                </p>
-                <h1 className="carousel-text title">
-                    {titleItems[currentIndex]}
-                </h1>
-                <p className="carousel-text">
-                    {englishItems[currentIndex]}
-                </p>
+        <>
+            <div className="about_us-wrapper">
+                <h1>Manifiesto de Naranja Sound System</h1>
+                <p>Naranja Sound System nace de una visión compartida: crear una nueva forma de vivir la música
+                    electrónica en la ciudad de Madrid. Somos la unión de dos fuerzas complementarias: Codex
+                    Sessions, una plataforma dedicada a la promoción de artistas enfocados a la música electrónica a
+                    través de entrevistas, podcasts y grabaciones, e Imbolc Crew, un colectivo que desde sus raíces ha
+                    sabido conectar a la escena underground con experiencias auténticas y renovadoras.
+                    En nuestro ADN se encuentran tres pilares fundamentales: Armonía, Respeto y Conexión. Estos
+                    principios guían cada uno de nuestros pasos, cada evento que organizamos y cada experiencia que
+                    creamos. Porque en Naranja Sound System no solo venimos a escuchar música; venimos a conectar,
+                    a sentir, a vivir una tarde donde el día y el sonido se entrelazan para crear algo mucho más grande
+                    que la suma de sus partes.</p>
+                <h1>Creemos en una revolución diurna.</h1>
+                <p>Nuestro espacio no pertenece a la noche, sino al sol. Nos alejamos de las sombras para mostrar que
+                    la música electrónica puede ser una celebración de luz, energía y libertad bajo el cielo abierto. Aquí,
+                    la tarde es el escenario donde los beats resuenan más profundo y el sonido fluye en perfecta armonía
+                    con los rayos del sol.
+                    Cada uno de nuestros eventos es un ritual moderno. En Naranja Sound System la comunidad se
+                    reúne para bailar, para escuchar, para respetar el espacio del otro, y para conectarse con una esencia
+                    que trasciende el simple hecho de estar juntos. Creamos un ambiente donde la música es solo una
+                    parte de la experiencia, un catalizador que despierta en nosotros la posibilidad de vivir el presente
+                    en su máxima expresión</p>
+                <h1>Esta es nuestra propuesta:</h1>
+                <ol>
+                    <li><strong>Armonía:</strong> Todo fluye. La música, la gente, el ambiente. Desde el primer beat hasta el último
+                        rayo de sol, buscamos una sinergia perfecta donde cada parte se siente conectada a la otra.
+                        Naranja Sound System es un espacio donde las cosas simplemente encajan.</li>
+                    <li><strong>Respeto:</strong> Respetamos la música, a los artistas, al público y al espacio. Aquí no hay juicios ni
+                        etiquetas, solo personas que se unen para compartir un momento único, donde la libertad
+                        individual y colectiva es fundamental.</li>
+                    <li><strong>Conexión:</strong> Nuestro propósito es unir, crear puentes invisibles a través del sonido. Queremos
+                        que nuestros eventos sean un espacio donde cada persona se sienta parte de un todo, donde
+                        la música sirva como lenguaje universal para conectarnos a un nivel más profundo.</li>
+                </ol>
+                <h1>Naranja es más que un color</h1>
+                <p>El nombre "Naranja" representa lo que somos: el color del atardecer, el instante perfecto donde el
+                    sol comienza a caer y la energía se transforma. Es un símbolo de calidez, creatividad y movimiento.
+                    Cada tarde que compartimos bajo su luz se convierte en un recuerdo vivo, una experiencia que,
+                    como el sol al final del día, se instala en la memoria para no irse jamás.
+                    Nuestro primer evento, el sábado 12 de octubre, será solo el inicio de esta revolución sonora. Con
+                    un horario de 16:00 a 00:00, hacemos una declaración: la música electrónica puede vivirse a plena
+                    luz del día, con la misma intensidad, la misma entrega, pero con una conexión más abierta, más
+                    visible.</p>
+                <h1>Somos Naranja Sound System.</h1>
+                <p>Somos armonía, respeto y conexión.
+                    Somos la nueva cara de la música electrónica diurna en Madrid.
+                    Es el momento de romper con las convenciones, de bailar con el sol como testigo y de crear una
+                    nueva forma de sentir el ritmo. Esto no es solo música, esto es una revolución diurna.</p>
             </div>
-                <div className="carousel-controls">
-                    <button className="arrow left" onClick={prevItem}>←</button>
-                    <button className="arrow right" onClick={nextItem}>→</button>
-                </div>
-                <div className="carousel-indicators">
-                    {textItems.map((_, index) => (
-                        <span
-                            key={index}
-                            className={`indicator ${index === currentIndex ? 'active' : ''}`}
-                            onClick={() => setCurrentIndex(index)}
-                        />
-                    ))}
-                </div>
-        </div>
-    );
+        </>
+    )
 };
 
 export default About;

@@ -10,6 +10,9 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    @media (max-width: 1024px) {
+        padding: 2rem;
+    }
     .carousel{
         max-width: $max-width;
         text-wrap: pretty;
@@ -18,11 +21,21 @@
         margin: auto;
         text-align: left;
         font-size: 3ch;
-
-        .title{
-            margin-bottom: 1rem;
-            margin-top: 6rem;
+        @media (max-width: 1024px) {
+            margin-bottom: 20%;
         }
+            .title{
+                margin-bottom: 1rem;
+                margin-top: 6rem;
+                @media (max-width: 1024px) {
+                    font-size: 2.5ch;
+                }
+            }
+            p{
+                @media (max-width: 1024px) {
+                    font-size: 1ch;
+                }
+            }
     }
     .carousel-controls {
         position: absolute;
@@ -31,6 +44,11 @@
         display: flex;
         justify-content: space-between;
         transform: translateY(-50%);
+        @media (max-width: 1024px) {
+            top:auto;
+            bottom: 0;
+            transform: inherit;
+        }
     }
     
     .arrow {
@@ -40,7 +58,7 @@
         cursor: pointer;
         color: white;
         transition: color 0.3s;
-        margin: 10%;
+        margin: 2%;
         &:hover {
             color: $corporate-green;
         }
@@ -76,3 +94,17 @@
     font-family: 'CooperBlackRegular';
     src: url("../assets/fonts/CooperBlackRegular.ttf");
   }
+
+.about_us-wrapper{
+    text-align: left;
+    text-wrap: pretty;
+    padding: 0 2rem;
+    width: 80vw;
+    margin: 9rem auto;
+    min-height: 100svh;
+    @media screen and (max-width: 1024px){
+        width: 90vw;
+        margin-top: 0;
+        padding: 5rem 1rem;
+    }
+}

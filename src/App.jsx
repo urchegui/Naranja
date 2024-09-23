@@ -17,7 +17,7 @@ function App() {
       <div className="body-wrapper">
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/about-us" element={<About />} />
           <Route path="/faqs" element={<Faqs />} />
           <Route path="/form" element={<TicketPurchase />} />
           <Route path="/colaboradores" element={<Colaboradores />} />

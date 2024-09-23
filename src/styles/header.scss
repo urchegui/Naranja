@@ -27,12 +27,11 @@
   }
 
   .header_links {
-    width: 25%;
+    width: 50%;
     display: inline-flex;
     align-content: center;
     justify-content: space-evenly;
     align-items: center;
-    padding-right: 5%;
 
     a {
       font-size: 20px;
@@ -41,7 +40,6 @@
     }
   }
 
-  // Hamburger menu styles
   .hamburger {
     display: none;
     flex-direction: column;
@@ -55,28 +53,44 @@
       background-color: white;
     }
   }
-
-  // Responsive styling for smaller screens
-  @media (max-width: 768px) {
+  .hamburger-react{
+    color: white;
+    padding-right: 1rem;
+    display: none;
+    @media (max-width: 1024px) {
+        display: block;
+    }
+  }
+  @media (max-width: 1024px) {
     .header_links {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 60px; // Below the header
-      right: 20px;
-      background-color: $corporate-green;
-      padding: 10px;
-      border-radius: 8px;
-      z-index: 10;
-      width: auto;
+        padding-right: 5%;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: $corporate-green;
+        padding: 10px;
+        border-radius: 8px;
+        z-index: 10;
+        width: 95vw;
+        height: 82svh;
+        left: -100%;
+        transition: left 0.5s ease-in-out;
+        opacity: 0;
+        visibility: hidden;
     }
 
-    // Show links when menu is open
-    .header_links.open {
-      display: flex;
+    .open {
+        left: 0;
+        opacity: 1;
+        visibility: visible;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+        align-content: space-evenly;
+        top: 7rem;
     }
 
-    // Show hamburger menu on smaller screens
     .hamburger {
       display: flex;
     }
