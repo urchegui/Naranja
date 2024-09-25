@@ -34,16 +34,61 @@
             display: inline-flex;
             align-items: center;
             justify-content: space-evenly;
-            margin-bottom: 2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-evenly;
+            margin: 2rem auto;
+            width: 100%;
         }
 
         .label-wrapper {
             width: 100%;
             display: grid;
             justify-items: start;
+            input {
+                background: transparent;
+                border: 1px solid $corporate-green;
+                border-radius: 5px;
+                margin-bottom: 15px;
+                color: $corporate-green;
+                padding: 10px;
+                width: 90%;
+                margin-top: 5px;
+            }
+    
+            select {
+                margin-top: 5px;
+                background: transparent;
+                border: 1px solid $corporate-green;
+                border-radius: 5px;
+                margin-bottom: 15px;
+                color: $corporate-green;
+                padding: 10px;
+    
+                &#alcohol {
+                    width: 96%;
+                }
+    
+                &#cerveza {
+                    width: 96%;
+                }
+            }
+    
+            textarea {
+                margin-top: 5px;
+                background: transparent;
+                border: 1px solid $corporate-green;
+                border-radius: 5px;
+                margin-bottom: 15px;
+                color: $corporate-green;
+                padding: 10px;
+                width: 91%;
+            }
         }
 
-        input {
+        .purchase-button{
+            cursor: pointer;
+            box-shadow: 4px 4px #46580233;
             background: transparent;
             border: 1px solid $corporate-green;
             border-radius: 5px;
@@ -52,39 +97,6 @@
             padding: 10px;
             width: 90%;
             margin-top: 5px;
-        }
-
-        select {
-            margin-top: 5px;
-            background: transparent;
-            border: 1px solid $corporate-green;
-            border-radius: 5px;
-            margin-bottom: 15px;
-            color: $corporate-green;
-            padding: 10px;
-
-            &#alcohol {
-                width: 96%;
-            }
-
-            &#cerveza {
-                width: 96%;
-            }
-        }
-
-        textarea {
-            margin-top: 5px;
-            background: transparent;
-            border: 1px solid $corporate-green;
-            border-radius: 5px;
-            margin-bottom: 15px;
-            color: $corporate-green;
-            padding: 10px;
-            width: 91%;
-        }
-        .purchase-button{
-            cursor: pointer;
-            box-shadow: 4px 4px #46580233;
             &:active {
                 box-shadow: 2px 2px #465802a6;
                 transform: translateY(4px);

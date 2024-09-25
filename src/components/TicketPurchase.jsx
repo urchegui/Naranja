@@ -114,7 +114,7 @@ const TicketPurchase = () => {
           <label>¿Algo a tener en cuenta? ¡No seas tímido!</label>
           <textarea name="user_message" required />
         </div>
-
+        <p>Usted comprende que acepta ser grabado para la distribución de Naranja Sound System y que su voz y su imagen pueden usarse para promover futuros eventos.</p>
         <label className="checkbox-container">
           <input
             type="checkbox"
@@ -122,7 +122,7 @@ const TicketPurchase = () => {
             onChange={handleCheckboxChange}
             required
           />
-          Acepto ser grabado * Usted comprende que acepta ser grabado para la distribución de Naranja Sound System y que su voz y su imagen pueden usarse para promover futuros eventos.
+          Acepto ser grabado * 
         </label>
 
         {/* Botón de envío con deshabilitado si ya se ha enviado */}
