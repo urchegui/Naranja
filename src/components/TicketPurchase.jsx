@@ -2,27 +2,59 @@ import React, { useState } from "react";
 import "../styles/form.scss";
 import { useRef } from 'react';
 import emailjs from '@emailjs/browser';
-import { TbVinyl } from "react-icons/tb";
+import Swal from 'sweetalert2';  // SweetAlert para popups estilizados
 
 const TicketPurchase = () => {
   const [isChecked, setIsChecked] = useState(false);
-  const [buttonText, setButtonText] = useState("Comprar Entrada");
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  const [loading, setLoading] = useState(false); // Estado para controlar el "cargando"
+  const [isSubmitted, setIsSubmitted] = useState(false); // Estado para controlar si se ha enviado el formulario
 
   const form = useRef();
 
-  const sendEmail = () => {
-    console.log("queso")
+  // Maneja el envío del formulario
+  const sendEmail = (e) => {
+    e.preventDefault();  // Prevenir comportamiento por defecto
+
+    if (!isChecked) {
+      Swal.fire({
+        title: 'Error',
+        text: 'Debe aceptar los términos y condiciones para continuar.',
+        icon: 'error',
+      });
+      return;
+    }
+
+    // Iniciar el estado de "cargando"
+    setLoading(true);
+
+    // Enviar el formulario usando emailjs
     emailjs
       .sendForm('service_nguzaoq', 'template_xnzxnie', form.current, {
         publicKey: 'sL-s-Yl-QfLO6LKkT',
       })
       .then(
         () => {
-          console.log('SUCCESS!');
+          setLoading(false); // Dejar de mostrar "cargando"
+          setIsButtonDisabled(true);  // Deshabilitar el botón
+          setIsSubmitted(true);  // Marcar que el formulario ha sido enviado
+
+          // Mostrar popup de éxito
+          Swal.fire({
+            title: '¡Formulario enviado!',
+            text: 'Te contactaremos pronto.',
+            icon: 'success',
+          });
         },
         (error) => {
-          console.log('FAILED...', error.text);
+          setLoading(false);  // Dejar de mostrar "cargando" en caso de error
+
+          // Mostrar popup de error
+          Swal.fire({
+            title: 'Error',
+            text: 'Hubo un error al enviar el formulario, inténtelo de nuevo.',
+            icon: 'error',
+          });
         },
       );
   };
@@ -31,19 +63,13 @@ const TicketPurchase = () => {
     setIsChecked(event.target.checked);
   };
 
-  const handlePurchase = () => {
-    if (isChecked) {
-      setButtonText("Te contactaremos");
-      setIsButtonDisabled(true);
-      sendEmail();
-    }
-  };
-
   return (
-    <div className="purchase-wrapper">
+    <div className="purchase-wrapper" id="entradas">
       <h2>Compra tu entrada</h2>
 
+      {/* Formulario con onSubmit */}
       <form ref={form} onSubmit={sendEmail}>
+        {/* Campos del formulario */}
         <div className="label-wrapper">
           <label>Nombre</label>
           <input type="text" name="user_name" required />
@@ -73,7 +99,6 @@ const TicketPurchase = () => {
             <option value="vodka">Vodka</option>
             <option value="gin">Gin</option>
             <option value="Nada">Nada</option>
-
           </select>
         </div>
         <div className="label-wrapper">
@@ -83,13 +108,13 @@ const TicketPurchase = () => {
             <option value="Cerveza">Cerveza</option>
             <option value="Tinto">Tinto</option>
             <option value="Nada">Nada</option>
-          </select>        </div>
+          </select>
+        </div>
         <div className="label-wrapper">
           <label>¿Algo a tener en cuenta? ¡No seas tímido!</label>
           <textarea name="user_message" required />
         </div>
 
-    
         <label className="checkbox-container">
           <input
             type="checkbox"
@@ -99,12 +124,13 @@ const TicketPurchase = () => {
           />
           Acepto ser grabado * Usted comprende que acepta ser grabado para la distribución de Naranja Sound System y que su voz y su imagen pueden usarse para promover futuros eventos.
         </label>
+
+        {/* Botón de envío con deshabilitado si ya se ha enviado */}
         <input
           type="submit"
           className="purchase-button"
-          onClick={handlePurchase}
-          disabled={!isChecked || isButtonDisabled}
-          value={buttonText}
+          disabled={!isChecked || isButtonDisabled || loading || isSubmitted}  // Deshabilitar si ya fue enviado
+          value={loading ? "Cargando..." : "Comprar Entrada"}
         />
       </form>
     </div>
